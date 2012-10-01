@@ -26,23 +26,29 @@ def ourNot(notinputs):
 
 pos_solutions = ourNot(inputs)
 #Nand
-
+#anya
 
 
 #And
+#jason
 
 #Or Not
+#anya
 
 #Or
+#jason
 
 #And Not
+#anya
 
 #Not Or
+#jason
 
 #Exclusive Or
+#anya
 
 #Equals
-
+#jason - bitwise equal for each position, 1 if the positions match, 0 if not
 
 folders = []
 
