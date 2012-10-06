@@ -1,8 +1,8 @@
 #!/bin/sh
 #PBS -q main
 #PBS -l nodes=1:ppn=1,walltime=130:00:00,mem=2049mb
-#PBS -N e_30
-#PBS -o /mnt/home/anyaejo/EC/ECData/002/e_30/message.log
+#PBS -N x002_math_30
+#PBS -o /mnt/home/anyaejo/EC/ECData/002/002_math_30/message.log
 #PBS -j oe
 
 # Give the automounter up to ~2 minutes to try to mount the correct directory
@@ -10,7 +10,7 @@
 count=1;
 while [ $count -le 64 ]
 do
-  if [ ! -e /mnt/home/anyaejo/EC/ECData/002/e_30 ]
+  if [ ! -e /mnt/home/anyaejo/EC/ECData/002/002_math_30 ]
   then
     sleep $count
   fi
@@ -21,34 +21,34 @@ done
 # (of course if this dir does not exist there will be no place to write the
 # the error to)
 
-if ! test -e /mnt/home/anyaejo/EC/ECData/002/e_30
+if ! test -e /mnt/home/anyaejo/EC/ECData/002/002_math_30
 then
-  echo "Could not find /mnt/home/anyaejo/EC/ECData/002/e_30"
+  echo "Could not find /mnt/home/anyaejo/EC/ECData/002/002_math_30"
   exit 2
 fi
 
 # First try to create a directory on the node's local hard disk
 # if not possible create directory on the shared directory.
 
-mkdir -p /mnt/local/anyaejo_e_30_2005846
-if test ! -e /mnt/local/anyaejo_e_30_2005846
+mkdir -p /mnt/local/anyaejo_002_math_30_2024854
+if test ! -e /mnt/local/anyaejo_002_math_30_2024854
 then
   echo `hostname`
-  echo "Could not create /mnt/local/anyaejo_e_30_2005846"
-  mkdir -p /mnt/scratch/anyaejo/e_30_2005846
-  if test ! -e /mnt/scratch/anyaejo/e_30_2005846
+  echo "Could not create /mnt/local/anyaejo_002_math_30_2024854"
+  mkdir -p /mnt/scratch/anyaejo/002_math_30_2024854
+  if test ! -e /mnt/scratch/anyaejo/002_math_30_2024854
   then
-    echo "Cound not create /mnt/scratch/anyaejo/e_30_2005846"
+    echo "Cound not create /mnt/scratch/anyaejo/002_math_30_2024854"
     exit 1
   fi
-  export node_dir=/mnt/scratch/anyaejo/e_30_2005846
+  export node_dir=/mnt/scratch/anyaejo/002_math_30_2024854
 else
-  export node_dir=/mnt/local/anyaejo_e_30_2005846
+  export node_dir=/mnt/local/anyaejo_002_math_30_2024854
 fi
 cd $node_dir
-cp -r -L /mnt/home/anyaejo/dist_run_tmp_tar_files/Job_26827.tar.gz $node_dir
-tar xzf Job_26827.tar.gz
-rm Job_26827.tar.gz
+cp -r -L /mnt/home/anyaejo/dist_run_tmp_tar_files/Job_27180.tar.gz $node_dir
+tar xzf Job_27180.tar.gz
+rm Job_27180.tar.gz
 
 ssh dev-intel09 dist_qsub_backfill
 if test -e $node_dir/avida
@@ -82,24 +82,24 @@ cd $node_dir ; tar czf dist_transfer.tar.gz .
 count=1;
 while [ $count -le 64 ]
 do
-  if [ ! -e /mnt/home/anyaejo/EC/ECData/002/e_30 ]
+  if [ ! -e /mnt/home/anyaejo/EC/ECData/002/002_math_30 ]
   then
     sleep $count
   fi
   count=$(($count+$count))
 done
 
-if ! test -e /mnt/home/anyaejo/EC/ECData/002/e_30
+if ! test -e /mnt/home/anyaejo/EC/ECData/002/002_math_30
 then
-  echo "Could not find /mnt/home/anyaejo/EC/ECData/002/e_30"
+  echo "Could not find /mnt/home/anyaejo/EC/ECData/002/002_math_30"
   exit 2
 fi
 
-if mv $node_dir/dist_transfer.tar.gz /mnt/home/anyaejo/EC/ECData/002/e_30
+if mv $node_dir/dist_transfer.tar.gz /mnt/home/anyaejo/EC/ECData/002/002_math_30
 then
   cd ~
   rm -rf $node_dir
-  cd /mnt/home/anyaejo/EC/ECData/002/e_30
+  cd /mnt/home/anyaejo/EC/ECData/002/002_math_30
   if tar xzf dist_transfer.tar.gz
   then
     rm dist_transfer.tar.gz

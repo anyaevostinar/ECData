@@ -1,0 +1,11 @@
+# Avida deme reaction diversity replication data
+# Mon Oct  1 13:45:16 2012
+#  1: Update [update]
+#  2: Mean number of different reactions by deme [demereact]
+#  3: Mean number of deme switch penalties per org  [orgpen]
+#  4: Mean shannon mutual information per deme [shannon]
+#  5: Mean shannon normalized mutual information per deme [shannonnorm]
+#  6: Mean number of orgs that perform a reaction [meanreact]
+#  7: Mean percent of orgs that replicate [meanperrepros]
+
+0 0 0 0 0 0 0 
