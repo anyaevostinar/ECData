@@ -46,8 +46,22 @@ def ourAnd(andinput1, andinput2):
     #print "ourAnd - solution -", and_solution
 #pos_solutions = ourAnd(inputs[1], inputs[2])
 
-#Or Not
-#anya
+#Or Not - an or then a not
+
+def ourOrNot(ornotinput1, ornotinput2):
+    #print "\nourOrNot - input 1     -  ", ornotinput1
+    #print "ourOrNot - input 2     -  ", ornotinput2
+    ornot_solution = []
+    sol = ''
+    for i in range(0, len(ornotinput1)):
+        if ornotinput1[i] == '1' or ornotinput2[i] == '1':
+            sol += '0'
+        else:
+            sol += '1'
+    ornot_solution.append(sol)
+    #print "ourOrNot - solution    -", ornot_solution
+
+#pos_solutions = ourOrNot(inputs[1], inputs[2])
 
 #Or
 
@@ -68,7 +82,7 @@ def ourOr(orinput1, orinput2):
 #And Not
 #anya
 
-#Not Or - an or than a not
+#Not Or - a not then an or
 
 def ourNotOr(notorinput1, notorinput2):
     #print "\nourNotOr - input 1     -  ", notorinput1
@@ -76,12 +90,13 @@ def ourNotOr(notorinput1, notorinput2):
     notor_solution = []
     sol = ''
     for i in range(0, len(notorinput1)):
-        if notorinput1[i] == '1' or notorinput2[i] == '1':
-            sol += '0'
-        else:
+        if notorinput1[i] == '0' or notorinput2[i] == '0':
             sol += '1'
+        else:
+            sol += '0'
     notor_solution.append(sol)
     #print "ourNotOr - solution    -", notor_solution
+
 #pos_solutions = ourNotOr(inputs[1], inputs[2])
 
 #Exclusive Or
