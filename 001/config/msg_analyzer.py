@@ -26,9 +26,21 @@ def ourNot(notinputs):
 
 #pos_solutions = ourNot(inputs)
 
-#Nand
-#anya
+#Nand - if both inputs are 1 the output is 0, else the output is 1
 
+def ourNand(nandinput1, nandinput2):
+    #print "\nourNand - input 1  -  ", nandinput1
+    #print "ourNand - input 2  -  ", nandinput2
+    nand_solution = []
+    sol = ''
+    for i in range(0, len(nandinput1)):
+        if nandinput1[i] == '1' and nandinput2[i] == '1':
+            sol += '0'
+        else:
+            sol += '1'
+    nand_solution.append(sol)
+    #print "ourNand - solution -", nand_solution
+#pos_solutions = ourNand(inputs[1], inputs[2])
 
 #And
 
@@ -46,7 +58,7 @@ def ourAnd(andinput1, andinput2):
     #print "ourAnd - solution -", and_solution
 #pos_solutions = ourAnd(inputs[1], inputs[2])
 
-#Or Not - an or then a not
+#Or Not - an OR then a NOT
 
 def ourOrNot(ornotinput1, ornotinput2):
     #print "\nourOrNot - input 1     -  ", ornotinput1
@@ -80,9 +92,22 @@ def ourOr(orinput1, orinput2):
 #pos_solutions = ourOr(inputs[1], inputs[2])
 
 #And Not
-#anya
 
-#Not Or - a not then an or
+def ourAndNot(andnotinput1, andnotinput2):
+    #print "\nourAndNot - input 1  -  ", andnotinput1
+    #print "ourAndNot - input 2  -  ", andnotinput2
+    andnot_solution = []
+    sol = ''
+    for i in range(0, len(andnotinput1)):
+        if andnotinput1[i] == '1' and andnotinput2[i] == '1':
+            sol += '0'
+        else:
+            sol += '1'
+    andnot_solution.append(sol)
+    #print "ourAndNot - solution -", andnot_solution
+#pos_solutions = ourAndNot(inputs[1], inputs[2])
+
+#Not Or - a NOT then an OR
 
 def ourNotOr(notorinput1, notorinput2):
     #print "\nourNotOr - input 1     -  ", notorinput1
@@ -99,8 +124,21 @@ def ourNotOr(notorinput1, notorinput2):
 
 #pos_solutions = ourNotOr(inputs[1], inputs[2])
 
-#Exclusive Or
-#anya
+#Exclusive Or - if the inputs don't match the output is 0
+
+def ourXor(xorinput1, xorinput2):
+    #print "\nourXor - input 1  -  ", xorinput1
+    #print "ourXor - input 2  -  ", xorinput2
+    xor_solution = []
+    sol = ''
+    for i in range(0, len(xorinput1)):
+        if xorinput1[i] == xorinput2[i]:
+            sol += '0'
+        else:
+            sol += '1'
+    xor_solution.append(sol)
+    #print "ourXor - solution -", xor_solution
+#pos_solutions = ourXor(inputs[1], inputs[2])
 
 #Equals - bitwise equal for each position, 1 if the positions match, 0 if not
 
