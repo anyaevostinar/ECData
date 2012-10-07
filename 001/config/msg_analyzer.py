@@ -24,31 +24,84 @@ def ourNot(notinputs):
                 sol+='0'
         not_solutions.append(sol)
 
-pos_solutions = ourNot(inputs)
+#pos_solutions = ourNot(inputs)
+
 #Nand
 #anya
 
 
 #And
-#jason
+
+def ourAnd(andinput1, andinput2):
+    #print "\nourAnd - input 1  -  ", andinput1
+    #print "ourAnd - input 2  -  ", andinput2
+    and_solution = []
+    sol = ''
+    for i in range(0, len(andinput1)):
+        if andinput1[i] == '1' and andinput2[i] == '1':
+            sol += '1'
+        else:
+            sol += '0'
+    and_solution.append(sol)
+    #print "ourAnd - solution -", and_solution
+#pos_solutions = ourAnd(inputs[1], inputs[2])
 
 #Or Not
 #anya
 
 #Or
-#jason
+
+def ourOr(orinput1, orinput2):
+    #print "\nourOr - input 1     -  ", orinput1
+    #print "ourOr - input 2     -  ", orinput2
+    or_solution = []
+    sol = ''
+    for i in range(0, len(orinput1)):
+        if orinput1[i] == '1' or orinput2[i] == '1':
+            sol += '1'
+        else:
+            sol += '0'
+    or_solution.append(sol)
+    #print "ourOr - solution    -", or_solution
+#pos_solutions = ourOr(inputs[1], inputs[2])
 
 #And Not
 #anya
 
-#Not Or
-#jason
+#Not Or - an or than a not
+
+def ourNotOr(notorinput1, notorinput2):
+    #print "\nourNotOr - input 1     -  ", notorinput1
+    #print "ourNotOr - input 2     -  ", notorinput2
+    notor_solution = []
+    sol = ''
+    for i in range(0, len(notorinput1)):
+        if notorinput1[i] == '1' or notorinput2[i] == '1':
+            sol += '0'
+        else:
+            sol += '1'
+    notor_solution.append(sol)
+    #print "ourNotOr - solution    -", notor_solution
+#pos_solutions = ourNotOr(inputs[1], inputs[2])
 
 #Exclusive Or
 #anya
 
-#Equals
-#jason - bitwise equal for each position, 1 if the positions match, 0 if not
+#Equals - bitwise equal for each position, 1 if the positions match, 0 if not
+
+def ourEquals(eqinput1, eqinput2):
+    #print "\nourEquals - input 1  -  ", eqinput1
+    #print "ourEquals - input 2  -  ", eqinput2
+    eq_solution = []
+    sol = ''
+    for i in range(0,len(eqinput1)):
+        if eqinput1[i] == eqinput2[i]:
+            sol += '1'
+        else:
+            sol += '0'
+    eq_solution.append(sol)
+    #print "ourEquals - solution -", eq_solution
+#pos_solutions = ourEquals(inputs[1], inputs[2])
 
 folders = []
 
