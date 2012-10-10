@@ -13,17 +13,14 @@ inputs = [bin(int('0f13149f',16))[2:].zfill(32), bin(int('3308e53e',16))[2:].zfi
 pos_solutions = []
 
 #Not
-def ourNot(notinputs):
-    not_solutions = []
-    for num in notinputs:
-        sol = ''
-        for i in num:
-            if i == '0':
-                sol+='1'
-            else:
-                sol+='0'
-        not_solutions.append(sol)
-        return not_solutions
+def ourNot(notinput):
+    sol = ''
+    for i in range(len(notinput)):
+        if notinput[i] == '0':
+            sol+='1'
+        else:
+            sol+='0'
+    return sol
 
 
 #Nand - if both inputs are 1 the output is 0, else the output is 1
@@ -138,13 +135,41 @@ def ourEquals(eqinput1, eqinput2):
     eq_solution.append(sol)
     return eq_solution
 
+functions = [ourNand, ourAnd, ourOrNot, ourNotOr, ourXor, ourOr, ourEquals, ourAndNot]
+
+#Make solution list from inputs
+for value in inputs:
+    pos_solutions.append(ourNot(value))
+
+#Input 1 and 2
+for function in functions:
+    pos_solutions+=function(inputs[0], inputs[1])
+
+#Input 1 and 3
+for function in functions:
+    pos_solutions+=function(inputs[0], inputs[2])
+
+#Input 2 and 3
+for function in functions:
+    pos_solutions+=function(inputs[1], inputs[2])
 
 
-folders = []
+folders = ['.']
 
 for folder in folders:
-    for seed in range(1, 31):
-        workingFile = gzip.open(folder+str(seed)+'/message_log.dat', 'rb')
+    for seed in range(1, 2):
+        #workingFile = gzip.open(folder+str(seed)+'/data/message_log.dat', 'rb')
+        workingFile = open('message_log.dat')
+        num_messages = 0
+        num_correct = 0
         for line in workingFile:
             if not line[0] == '#' and not line[0] == '\n':
                 solution = bin(int(line.split()[5]))[2:].zfill(32)
+                num_messages += 1
+                for sol in pos_solutions:
+                    if solution == sol:
+                        num_correct += 1
+                        break
+        print "num_correct = ", num_correct
+        print "num_messages = ", num_messages
+        print "percentage correct = ", float(num_correct)/float(num_messages)
